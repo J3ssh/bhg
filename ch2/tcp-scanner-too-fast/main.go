@@ -8,8 +8,8 @@ import (
 func main() { //start main function
 	for i := 1; i <= 1024; i++ { //for loop port genreation
 		go func(j int) { //goroutine without wait for bad example
-			address := fmt.Sprintf("scanme.nmap.org%d", j)
-			conn, err := net.Dial("tcp", address)
+			address := fmt.Sprintf("scanme.nmap.org:%d", j) //pass loop with goroutine
+			conn, err := net.Dial("tcp", address) //create connection
 			if err != nil { //error checking
 				return
 			}
